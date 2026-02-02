@@ -1,147 +1,647 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
     <title>My Eternal Universe | Ouissy</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;600;800&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;600;800&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        :root { --accent: #ff0a54; --glass: rgba(255, 255, 255, 0.1); --bg: #0a0a12; }
-        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; outline: none; -webkit-user-select: none; user-select: none; }
-        body { margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; height: 100vh; display: flex; align-items: center; justify-content: center; background: var(--bg); transition: all 1s ease; overflow: hidden; color: white; }
-        #particles { position: absolute; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
-        .quest-container { position: relative; z-index: 10; background: var(--glass); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 40px; padding: 30px; width: 92%; max-width: 450px; text-align: center; box-shadow: 0 40px 100px rgba(0,0,0,0.8); }
-        .progress-bar { width: 100%; height: 8px; background: rgba(255,255,255,0.05); border-radius: 10px; margin-bottom: 25px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); }
-        #fill { width: 5%; height: 100%; background: linear-gradient(90deg, #ff0a54, #ff85a1); transition: 0.8s ease; box-shadow: 0 0 20px var(--accent); }
-        h1 { font-family: 'Dancing Script', cursive; font-size: 2.8rem; margin: 0; color: #ff85a1; text-shadow: 0 0 15px rgba(255, 133, 161, 0.5); }
-        h2 { font-size: 1.1rem; margin: 20px 0; line-height: 1.6; font-weight: 500; min-height: 60px; }
-        .btn-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
-        button { padding: 16px; border: none; border-radius: 20px; font-size: 1rem; font-weight: 700; cursor: pointer; transition: 0.3s; background: rgba(255,255,255,0.95); color: #1a1a2e; }
-        button:active { transform: scale(0.95); background: #fff; }
-        .primary-btn { background: var(--accent); color: white; box-shadow: 0 0 20px var(--accent); }
-        .hidden { display: none; }
-        .visible { display: block; animation: slideUp 0.5s forwards; }
-        @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-        @keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-10px); } 75% { transform: translateX(10px); } }
-        .shake { animation: shake 0.3s ease-in-out; }
-        input { width: 100%; padding: 15px; border-radius: 15px; border: 1px solid var(--accent); background: rgba(0,0,0,0.3); color: white; text-align: center; font-size: 1.2rem; margin-bottom: 15px; -webkit-user-select: text; user-select: text; }
-        .heart { position: absolute; pointer-events: none; animation: floatUp 4s linear forwards; }
-        @keyframes floatUp { to { transform: translateY(-110vh) rotate(360deg); opacity: 0; } }
+      :root {
+        --accent: #ff0a54;
+        --glass: rgba(255, 255, 255, 0.1);
+        --bg: #0a0a12;
+      }
+      * {
+        box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent;
+        outline: none;
+        -webkit-user-select: none;
+        user-select: none;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Montserrat", sans-serif;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--bg);
+        transition: all 1s ease;
+        overflow: hidden;
+        color: white;
+      }
+      #particles {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        pointer-events: none;
+      }
+      .quest-container {
+        position: relative;
+        z-index: 10;
+        background: var(--glass);
+        backdrop-filter: blur(30px);
+        -webkit-backdrop-filter: blur(30px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 40px;
+        padding: 30px;
+        width: 92%;
+        max-width: 450px;
+        text-align: center;
+        box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
+      }
+      .progress-bar {
+        width: 100%;
+        height: 8px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 10px;
+        margin-bottom: 25px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      #fill {
+        width: 5%;
+        height: 100%;
+        background: linear-gradient(90deg, #ff0a54, #ff85a1);
+        transition: 0.8s ease;
+        box-shadow: 0 0 20px var(--accent);
+      }
+      h1 {
+        font-family: "Dancing Script", cursive;
+        font-size: 2.8rem;
+        margin: 0;
+        color: #ff85a1;
+        text-shadow: 0 0 15px rgba(255, 133, 161, 0.5);
+      }
+      h2 {
+        font-size: 1.1rem;
+        margin: 20px 0;
+        line-height: 1.6;
+        font-weight: 500;
+        min-height: 60px;
+      }
+      .btn-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      button {
+        padding: 16px;
+        border: none;
+        border-radius: 20px;
+        font-size: 1rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: 0.3s;
+        background: rgba(255, 255, 255, 0.95);
+        color: #1a1a2e;
+      }
+      button:active {
+        transform: scale(0.95);
+        background: #fff;
+      }
+      .primary-btn {
+        background: var(--accent);
+        color: white;
+        box-shadow: 0 0 20px var(--accent);
+      }
+      .hidden {
+        display: none;
+      }
+      .visible {
+        display: block;
+        animation: slideUp 0.5s forwards;
+      }
+      @keyframes slideUp {
+        from {
+          transform: translateY(20px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+      @keyframes shake {
+        0%,
+        100% {
+          transform: translateX(0);
+        }
+        25% {
+          transform: translateX(-10px);
+        }
+        75% {
+          transform: translateX(10px);
+        }
+      }
+      .shake {
+        animation: shake 0.3s ease-in-out;
+      }
+      input {
+        width: 100%;
+        padding: 15px;
+        border-radius: 15px;
+        border: 1px solid var(--accent);
+        background: rgba(0, 0, 0, 0.3);
+        color: white;
+        text-align: center;
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+        -webkit-user-select: text;
+        user-select: text;
+      }
+      .heart {
+        position: absolute;
+        pointer-events: none;
+        animation: floatUp 4s linear forwards;
+      }
+      @keyframes floatUp {
+        to {
+          transform: translateY(-110vh) rotate(360deg);
+          opacity: 0;
+        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <canvas id="particles"></canvas>
     <div class="quest-container" id="card">
-        <div class="progress-bar"><div id="fill"></div></div>
+      <div class="progress-bar"><div id="fill"></div></div>
 
-        <div id="step0" class="visible">
-            <h1>Soulmate Verification</h1>
-            <h2>Welcome, my beautiful Ouissy. You are about to enter Anwar’s heart. Please choose the path that reflects your soul today.</h2>
-            <button class="primary-btn" style="width:100%" onclick="go(1, 10)">Unlock the Multiverse 🌸</button>
+      <div id="step0" class="visible">
+        <h1>Soulmate Verification</h1>
+        <h2>
+          Welcome, my beautiful Ouissy. You are about to enter Anwar’s heart.
+          Please choose the path that reflects your soul today.
+        </h2>
+        <button class="primary-btn" style="width: 100%" onclick="go(1, 10)">
+          Unlock the Multiverse 🌸
+        </button>
+      </div>
+
+      <div id="step1" class="hidden">
+        <h2>Who am I to you in this life?</h2>
+        <div class="btn-grid">
+          <button onclick="startBranch('husby', '#0f172a')">
+            💍 My Forever Husby
+          </button>
+          <button onclick="startBranch('weldi', '#3b0764')">
+            🥺 Mommy’s Sweet Boy (Weldi)
+          </button>
+          <button onclick="startBranch('daddy', '#450a0a')">
+            🖤 My Protective Daddy
+          </button>
+          <button id="noneBtn">A Stranger</button>
         </div>
+      </div>
 
-        <div id="step1" class="hidden">
-            <h2>Who am I to you in this life?</h2>
-            <div class="btn-grid">
-                <button onclick="startBranch('husby', '#0f172a')">💍 My Forever Husby</button>
-                <button onclick="startBranch('weldi', '#3b0764')">🥺 Mommy’s Sweet Boy (Weldi)</button>
-                <button onclick="startBranch('daddy', '#450a0a')">🖤 My Protective Daddy</button>
-                <button id="noneBtn">A Stranger</button>
-            </div>
+      <div id="husby1" class="hidden">
+        <h2>
+          Stage 1: The Vision<br />When we finally build our dream life, where
+          are we escaping to for our anniversaries?
+        </h2>
+        <div class="btn-grid">
+          <button onclick="goBranch('husby', 2, 20)">Bora Bora 🏝️</button
+          ><button onclick="goBranch('husby', 2, 20)">Swiss Alps 🏔️</button>
         </div>
-
-        <div id="husby1" class="hidden"><h2>Stage 1: The Vision<br>When we finally build our dream life, where are we escaping to for our anniversaries?</h2><div class="btn-grid"><button onclick="goBranch('husby', 2, 20)">Bora Bora 🏝️</button><button onclick="goBranch('husby', 2, 20)">Swiss Alps 🏔️</button></div></div>
-        <div id="husby2" class="hidden"><h2>Stage 2: The Routine<br>Will you still make me coffee when I'm too tired to move?</h2><div class="btn-grid"><button onclick="goBranch('husby', 3, 30)">Always, my king ☕</button><button onclick="triggerShake('Nice try, but I need my caffeine! 😜')">Make it yourself 😜</button></div></div>
-        <div id="husby3" class="hidden"><h2>Stage 3: The Secret<br>If we win the lottery, what's the first thing we buy?</h2><div class="btn-grid"><button onclick="goBranch('husby', 4, 40)">Our Dream Mansion 🏰</button><button onclick="goBranch('husby', 4, 40)">A Private Jet ✈️</button></div></div>
-        <div id="husby4" class="hidden"><h2>Stage 4: The Vow<br>Will you promise to keep me grounded when life gets loud?</h2><div class="btn-grid"><button onclick="goBranch('husby', 5, 50)">I'll be your peace ❤️</button><button onclick="goBranch('husby', 5, 50)">I'll be your rock 🪨</button></div></div>
-        <div id="husby5" class="hidden"><h2>Stage 5: The Style<br>Are we the 'Matching PJs' type of couple?</h2><div class="btn-grid"><button onclick="goBranch('husby', 6, 60)">Yes, so cute! 🧸</button><button onclick="triggerShake('Liarrrr, you know you want the matching sets! 😂')">Never! 😂</button></div></div>
-        <div id="husby6" class="hidden"><h2>Stage 6: The Support<br>Who is the better driver? (Be careful!)</h2><div class="btn-grid"><button onclick="goBranch('husby', 7, 70)">Anwar 🏎️</button><button onclick="goBranch('husby', 7, 70)">Me 💁‍♀️</button></div></div>
-        <div id="husby7" class="hidden"><h2>Stage 7: The Aging<br>Will you still love me when I'm 80 and cranky?</h2><div class="btn-grid"><button onclick="goBranch('husby', 8, 80)">Even more then 👴👵</button><button onclick="goBranch('husby', 8, 80)">Forever and always ♾️</button></div></div>
-        <div id="husby8" class="hidden"><h2>Stage 8: Security<br>Enter your identity based on the path you chose:</h2><input type="text" id="passHusby" placeholder="..."><button class="primary-btn" style="width:100%" onclick="checkPass('passHusby', 'wifey')">Verify Identity</button></div>
-
-        <div id="weldi1" class="hidden"><h2>Stage 1: The Cuddles<br>Since I'm your Weldi, do I get unlimited head scratches?</h2><div class="btn-grid"><button onclick="goBranch('weldi', 2, 20)">Unlimited! 🥺</button><button onclick="triggerShake('Only 5 minutes? Mommy is mean today! 🥺')">Only 5 mins 😜</button></div></div>
-        <div id="weldi2" class="hidden"><h2>Stage 2: The Hunger<br>If I'm hungry at 3 AM, are you making me a sandwich?</h2><div class="btn-grid"><button onclick="goBranch('weldi', 3, 30)">Yes, anything for my boy 🥪</button><button onclick="goBranch('weldi', 3, 30)">Only if you cuddle first 🧸</button></div></div>
-        <div id="weldi3" class="hidden"><h2>Stage 3: The Comfort<br>If I'm sad, how long is the hug?</h2><div class="btn-grid"><button onclick="goBranch('weldi', 4, 40)">Until you feel better 🫂</button><button onclick="goBranch('weldi', 4, 40)">The whole day 🌸</button></div></div>
-        <div id="weldi4" class="hidden"><h2>Stage 4: The Favorite<br>Am I your favorite person to take care of?</h2><div class="btn-grid"><button onclick="goBranch('weldi', 5, 50)">By far! 🌎</button><button onclick="triggerShake('Hey! Don\'t play with your boy\'s feelings! 🥺')">Don't get cocky! 😂</button></div></div>
-        <div id="weldi5" class="hidden"><h2>Stage 5: The Protection<br>Will you protect me from the spiders?</h2><div class="btn-grid"><button onclick="goBranch('weldi', 6, 60)">I'm your hero 🕷️</button><button onclick="goBranch('weldi', 6, 60)">I'll try my best! 😂</button></div></div>
-        <div id="weldi6" class="hidden"><h2>Stage 6: The Nap<br>Can I sleep on your lap during movies?</h2><div class="btn-grid"><button onclick="goBranch('weldi', 7, 70)">Always 😴</button><button onclick="goBranch('weldi', 7, 70)">Every single time 🎬</button></div></div>
-        <div id="weldi7" class="hidden"><h2>Stage 7: The Smile<br>Will you promise to always make me laugh?</h2><div class="btn-grid"><button onclick="goBranch('weldi', 8, 80)">I'll try my best 🌸</button><button onclick="goBranch('weldi', 8, 80)">I promise! ✨</button></div></div>
-        <div id="weldi8" class="hidden"><h2>Stage 8: Security<br>Enter your identity based on the path you chose:</h2><input type="text" id="passWeldi" placeholder="..."><button class="primary-btn" style="width:100%" onclick="checkPass('passWeldi', 'mommy')">Verify Identity</button></div>
-
-        <div id="daddy1" class="hidden"><h2>Stage 1: Safety<br>Do you feel safest when you're wrapped in my arms?</h2><div class="btn-grid"><button onclick="goBranch('daddy', 2, 20)">Safest in the world 🖤</button><button onclick="goBranch('daddy', 2, 20)">Like home 🏠</button></div></div>
-        <div id="daddy2" class="hidden"><h2>Stage 2: Rules<br>Do you promise to always tell me your secrets?</h2><div class="btn-grid"><button onclick="goBranch('daddy', 3, 30)">Every single one 🤐</button><button onclick="goBranch('daddy', 3, 30)">Only if you ask 🖤</button></div></div>
-        <div id="daddy3" class="hidden"><h2>Stage 3: Spoilers<br>Are you ready for your Valentine's gifts?</h2><div class="btn-grid"><button onclick="goBranch('daddy', 4, 40)">I can't wait! 💎</button><button onclick="goBranch('daddy', 4, 40)">I'm so excited! 🌹</button></div></div>
-        <div id="daddy4" class="hidden"><h2>Stage 4: Attention<br>Do you like it when I'm possessive?</h2><div class="btn-grid"><button onclick="goBranch('daddy', 5, 50)">I love it 🔗</button><button onclick="goBranch('daddy', 5, 50)">It makes me yours 🖤</button></div></div>
-        <div id="daddy5" class="hidden"><h2>Stage 5: The Boss<br>Who actually wins the arguments?</h2><div class="btn-grid"><button onclick="goBranch('daddy', 6, 60)">You, Sir 🖤</button><button onclick="triggerShake('Wrong answer! Daddy always wins. 😈')">Me! 😈</button></div></div>
-        <div id="daddy6" class="hidden"><h2>Stage 6: Dates<br>Fancy dinner or cozy night in?</h2><div class="btn-grid"><button onclick="goBranch('daddy', 7, 70)">Fancy 🥂</button><button onclick="goBranch('daddy', 7, 70)">Cozy 🍕</button></div></div>
-        <div id="daddy7" class="hidden"><h2>Stage 7: Trust<br>Do you trust me with your heart forever?</h2><div class="btn-grid"><button onclick="goBranch('daddy', 8, 80)">With my life 🖤</button><button onclick="goBranch('daddy', 8, 80)">Forever yours ♾️</button></div></div>
-        <div id="daddy8" class="hidden"><h2>Stage 8: Security<br>Enter your identity based on the path you chose:</h2><input type="text" id="passDaddy" placeholder="..."><button class="primary-btn" style="width:100%" onclick="checkPass('passDaddy', 'ouissy')">Verify Identity</button></div>
-
-        <div id="proposal" class="hidden">
-            <h1>The Eternal Request</h1>
-            <h2>Every timeline, every role, every universe... it all ends with this.</h2>
-            <h2 id="finalQuestion">Will you be my Valentine and make me the luckiest man alive?</h2>
-            <button class="primary-btn" style="width: 100%; font-size: 1.5rem;" onclick="celebrate()">YES, FOREVER! ❤️✨</button>
+      </div>
+      <div id="husby2" class="hidden">
+        <h2>
+          Stage 2: The Routine<br />Will you still make me coffee when I'm too
+          tired to move?
+        </h2>
+        <div class="btn-grid">
+          <button onclick="goBranch('husby', 3, 30)">Always, my king ☕</button
+          ><button
+            onclick="triggerShake('Nice try, but I need my caffeine! 😜')"
+          >
+            Make it yourself 😜
+          </button>
         </div>
-
-        <div id="success" class="hidden">
-            <h1 style="font-size: 3rem;">MY VALENTINE</h1>
-            <p id="typewriter" style="font-weight: 800; color: #ff85a1; line-height: 1.8;"></p>
-            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3Z0ZzVxdzR4eGdzYjRxeGdzYjRxeGdzYjRxeGdzYjRxeGdzYjR4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/lTQF0ODLLjhza/giphy.gif" style="width: 130px; margin-top:15px; border-radius: 20px;">
+      </div>
+      <div id="husby3" class="hidden">
+        <h2>
+          Stage 3: The Secret<br />If we win the lottery, what's the first thing
+          we buy?
+        </h2>
+        <div class="btn-grid">
+          <button onclick="goBranch('husby', 4, 40)">
+            Our Dream Mansion 🏰</button
+          ><button onclick="goBranch('husby', 4, 40)">A Private Jet ✈️</button>
         </div>
+      </div>
+      <div id="husby4" class="hidden">
+        <h2>
+          Stage 4: The Vow<br />Will you promise to keep me grounded when life
+          gets loud?
+        </h2>
+        <div class="btn-grid">
+          <button onclick="goBranch('husby', 5, 50)">
+            I'll be your peace ❤️</button
+          ><button onclick="goBranch('husby', 5, 50)">
+            I'll be your rock 🪨
+          </button>
+        </div>
+      </div>
+      <div id="husby5" class="hidden">
+        <h2>
+          Stage 5: The Style<br />Are we the 'Matching PJs' type of couple?
+        </h2>
+        <div class="btn-grid">
+          <button onclick="goBranch('husby', 6, 60)">Yes, so cute! 🧸</button
+          ><button
+            onclick="triggerShake('Liarrrr, you know you want the matching sets! 😂')"
+          >
+            Never! 😂
+          </button>
+        </div>
+      </div>
+      <div id="husby6" class="hidden">
+        <h2>
+          Stage 6: The Support<br />Who is the better driver? (Be careful!)
+        </h2>
+        <div class="btn-grid">
+          <button onclick="goBranch('husby', 7, 70)">Anwar 🏎️</button
+          ><button onclick="goBranch('husby', 7, 70)">Me 💁‍♀️</button>
+        </div>
+      </div>
+      <div id="husby7" class="hidden">
+        <h2>
+          Stage 7: The Aging<br />Will you still love me when I'm 80 and cranky?
+        </h2>
+        <div class="btn-grid">
+          <button onclick="goBranch('husby', 8, 80)">Even more then 👴👵</button
+          ><button onclick="goBranch('husby', 8, 80)">
+            Forever and always ♾️
+          </button>
+        </div>
+      </div>
+      <div id="husby8" class="hidden">
+        <h2>
+          Stage 8: Security<br />Enter your identity based on the path you
+          chose:
+        </h2>
+        <input type="text" id="passHusby" placeholder="..." /><button
+          class="primary-btn"
+          style="width: 100%"
+          onclick="checkPass('passHusby', 'wifey')"
+        >
+          Verify Identity
+        </button>
+      </div>
+
+      <div id="weldi1" class="hidden">
+        <h2>
+          Stage 1: The Cuddles<br />Since I'm your Weldi, do I get unlimited
+          head scratches?
+        </h2>
+        <div class="btn-grid">
+          <button onclick="goBranch('weldi', 2, 20)">Unlimited! 🥺</button
+          ><button
+            onclick="triggerShake('Only 5 minutes? Mommy is mean today! 🥺')"
+          >
+            Only 5 mins 😜
+          </button>
+        </div>
+      </div>
+      <div id="weldi2" class="hidden">
+        <h2>
+          Stage 2: The Hunger<br />If I'm hungry at 3 AM, are you making me a
+          sandwich?
+        </h2>
+        <div class="btn-grid">
+          <button onclick="goBranch('weldi', 3, 30)">
+            Yes, anything for my boy 🥪</button
+          ><button onclick="goBranch('weldi', 3, 30)">
+            Only if you cuddle first 🧸
+          </button>
+        </div>
+      </div>
+      <div id="weldi3" class="hidden">
+        <h2>Stage 3: The Comfort<br />If I'm sad, how long is the hug?</h2>
+        <div class="btn-grid">
+          <button onclick="goBranch('weldi', 4, 40)">
+            Until you feel better 🫂</button
+          ><button onclick="goBranch('weldi', 4, 40)">The whole day 🌸</button>
+        </div>
+      </div>
+      <div id="weldi4" class="hidden">
+        <h2>
+          Stage 4: The Favorite<br />Am I your favorite person to take care of?
+        </h2>
+        <div class="btn-grid">
+          <button onclick="goBranch('weldi', 5, 50)">By far! 🌎</button
+          ><button
+            onclick="triggerShake('Hey! Don\'t play with your boy\'s feelings! 🥺')"
+          >
+            Don't get cocky! 😂
+          </button>
+        </div>
+      </div>
+      <div id="weldi5" class="hidden">
+        <h2>
+          Stage 5: The Protection<br />Will you protect me from the spiders?
+        </h2>
+        <div class="btn-grid">
+          <button onclick="goBranch('weldi', 6, 60)">I'm your hero 🕷️</button
+          ><button onclick="goBranch('weldi', 6, 60)">
+            I'll try my best! 😂
+          </button>
+        </div>
+      </div>
+      <div id="weldi6" class="hidden">
+        <h2>Stage 6: The Nap<br />Can I sleep on your lap during movies?</h2>
+        <div class="btn-grid">
+          <button onclick="goBranch('weldi', 7, 70)">Always 😴</button
+          ><button onclick="goBranch('weldi', 7, 70)">
+            Every single time 🎬
+          </button>
+        </div>
+      </div>
+      <div id="weldi7" class="hidden">
+        <h2>
+          Stage 7: The Smile<br />Will you promise to always make me laugh?
+        </h2>
+        <div class="btn-grid">
+          <button onclick="goBranch('weldi', 8, 80)">I'll try my best 🌸</button
+          ><button onclick="goBranch('weldi', 8, 80)">I promise! ✨</button>
+        </div>
+      </div>
+      <div id="weldi8" class="hidden">
+        <h2>
+          Stage 8: Security<br />Enter your identity based on the path you
+          chose:
+        </h2>
+        <input type="text" id="passWeldi" placeholder="..." /><button
+          class="primary-btn"
+          style="width: 100%"
+          onclick="checkPass('passWeldi', 'mommy')"
+        >
+          Verify Identity
+        </button>
+      </div>
+
+      <div id="daddy1" class="hidden">
+        <h2>
+          Stage 1: Safety<br />Do you feel safest when you're wrapped in my
+          arms?
+        </h2>
+        <div class="btn-grid">
+          <button onclick="goBranch('daddy', 2, 20)">
+            Safest in the world 🖤</button
+          ><button onclick="goBranch('daddy', 2, 20)">Like home 🏠</button>
+        </div>
+      </div>
+      <div id="daddy2" class="hidden">
+        <h2>
+          Stage 2: Rules<br />Do you promise to always tell me your secrets?
+        </h2>
+        <div class="btn-grid">
+          <button onclick="goBranch('daddy', 3, 30)">Every single one 🤐</button
+          ><button onclick="goBranch('daddy', 3, 30)">
+            Only if you ask 🖤
+          </button>
+        </div>
+      </div>
+      <div id="daddy3" class="hidden">
+        <h2>
+          Stage 3: Spoilers<br />Are you ready for your Valentine's gifts?
+        </h2>
+        <div class="btn-grid">
+          <button onclick="goBranch('daddy', 4, 40)">I can't wait! 💎</button
+          ><button onclick="goBranch('daddy', 4, 40)">
+            I'm so excited! 🌹
+          </button>
+        </div>
+      </div>
+      <div id="daddy4" class="hidden">
+        <h2>Stage 4: Attention<br />Do you like it when I'm possessive?</h2>
+        <div class="btn-grid">
+          <button onclick="goBranch('daddy', 5, 50)">I love it 🔗</button
+          ><button onclick="goBranch('daddy', 5, 50)">
+            It makes me yours 🖤
+          </button>
+        </div>
+      </div>
+      <div id="daddy5" class="hidden">
+        <h2>Stage 5: The Boss<br />Who actually wins the arguments?</h2>
+        <div class="btn-grid">
+          <button onclick="goBranch('daddy', 6, 60)">You, Sir 🖤</button
+          ><button
+            onclick="triggerShake('Wrong answer! Daddy always wins. 😈')"
+          >
+            Me! 😈
+          </button>
+        </div>
+      </div>
+      <div id="daddy6" class="hidden">
+        <h2>Stage 6: Dates<br />Fancy dinner or cozy night in?</h2>
+        <div class="btn-grid">
+          <button onclick="goBranch('daddy', 7, 70)">Fancy 🥂</button
+          ><button onclick="goBranch('daddy', 7, 70)">Cozy 🍕</button>
+        </div>
+      </div>
+      <div id="daddy7" class="hidden">
+        <h2>Stage 7: Trust<br />Do you trust me with your heart forever?</h2>
+        <div class="btn-grid">
+          <button onclick="goBranch('daddy', 8, 80)">With my life 🖤</button
+          ><button onclick="goBranch('daddy', 8, 80)">Forever yours ♾️</button>
+        </div>
+      </div>
+      <div id="daddy8" class="hidden">
+        <h2>
+          Stage 8: Security<br />Enter your identity based on the path you
+          chose:
+        </h2>
+        <input type="text" id="passDaddy" placeholder="..." /><button
+          class="primary-btn"
+          style="width: 100%"
+          onclick="checkPass('passDaddy', 'ouissy')"
+        >
+          Verify Identity
+        </button>
+      </div>
+
+      <div id="proposal" class="hidden">
+        <h1>The Eternal Request</h1>
+        <h2>
+          Every timeline, every role, every universe... it all ends with this.
+        </h2>
+        <h2 id="finalQuestion">
+          Will you be my Valentine and make me the luckiest man alive?
+        </h2>
+        <button
+          class="primary-btn"
+          style="width: 100%; font-size: 1.5rem"
+          onclick="celebrate()"
+        >
+          YES, FOREVER! ❤️✨
+        </button>
+      </div>
+
+      <div id="success" class="hidden">
+        <h1 style="font-size: 3rem">MY VALENTINE</h1>
+        <p
+          id="typewriter"
+          style="font-weight: 800; color: #ff85a1; line-height: 1.8"
+        ></p>
+        <img
+          src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3Z0ZzVxdzR4eGdzYjRxeGdzYjRxeGdzYjRxeGdzYjRxeGdzYjR4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/lTQF0ODLLjhza/giphy.gif"
+          style="width: 130px; margin-top: 15px; border-radius: 20px"
+        />
+      </div>
     </div>
 
     <script>
-        let branch = '';
-        let strangerClicks = 0;
-        function hideAll() { document.querySelectorAll('.quest-container > div:not(.progress-bar)').forEach(d => { d.classList.remove('visible'); d.classList.add('hidden'); }); }
-        function go(s, p) { hideAll(); const next = document.getElementById('step'+s); next.classList.remove('hidden'); next.classList.add('visible'); document.getElementById('fill').style.width = p+'%'; }
-        function startBranch(b, color) { branch = b; document.body.style.background = color; hideAll(); document.getElementById(b+'1').classList.remove('hidden'); document.getElementById(b+'1').classList.add('visible'); document.getElementById('fill').style.width = '15%'; }
-        function goBranch(b, s, p) { hideAll(); const next = document.getElementById(b+s); next.classList.remove('hidden'); next.classList.add('visible'); document.getElementById('fill').style.width = p+'%'; }
-        function triggerShake(msg) { document.getElementById('card').classList.add('shake'); setTimeout(() => document.getElementById('card').classList.remove('shake'), 300); if(msg) alert(msg); }
-        function checkPass(id, correct) { const val = document.getElementById(id).value.toLowerCase(); if(val === correct) { goProposal(90); } else { triggerShake("Access Denied! Enter your identity based on the path you chose... 😉"); } }
-        function goProposal(p) { hideAll(); document.getElementById('proposal').classList.remove('hidden'); document.getElementById('proposal').classList.add('visible'); document.getElementById('fill').style.width = p+'%'; }
-        function celebrate() { hideAll(); document.getElementById('success').classList.remove('hidden'); document.getElementById('success').classList.add('visible'); document.getElementById('fill').style.width = '100%'; document.body.style.background = '#640d14'; setInterval(makeHeart, 150); const msg = I knew you were the one. My Ouissy, you have successfully conquered every path to my heart. Anwar is yours forever. I love you beyond any multiverse! 💍💖✨; let i = 0; function type() { if(i < msg.length) { document.getElementById('typewriter').innerHTML += msg.charAt(i); i++; setTimeout(type, 45); } } type(); }
-        function makeHeart() { const h = document.createElement('div'); h.classList.add('heart'); h.innerHTML = ['❤️','💖','✨','🌸'][Math.floor(Math.random()*4)]; h.style.left = Math.random()*100+'vw'; h.style.bottom = '-50px'; h.style.fontSize = Math.random()*20+15+'px'; document.body.appendChild(h); setTimeout(() => h.remove(), 4000); }
-        
-        const noneBtn = document.getElementById('noneBtn');
-        const strangerTexts = ["Are you sure?", "Still a stranger?", "Stop it! 😂", "You can't click this", "Fine, I'm leaving!"];
-        const moveNone = () => { 
-            if(strangerClicks < 5) {
-                noneBtn.innerText = strangerTexts[strangerClicks];
-                noneBtn.style.position = 'fixed';
-                noneBtn.style.left = Math.random() * (window.innerWidth - 100) + 'px';
-                noneBtn.style.top = Math.random() * (window.innerHeight - 50) + 'px';
-                strangerClicks++;
-            } else {
-                noneBtn.style.display = 'none';
-            }
-        };
-        noneBtn.addEventListener('mouseover', moveNone);
-        noneBtn.addEventListener('touchstart', (e) => { e.preventDefault(); moveNone(); });
-document.getElementById('unlockBtn').addEventListener('click', () => {
-    document.getElementById('verificationCard').style.display = 'none';
-    document.getElementById('mainContent').classList.remove('hidden');
-});
+      let branch = "";
+      let strangerClicks = 0;
+      function hideAll() {
+        document
+          .querySelectorAll(".quest-container > div:not(.progress-bar)")
+          .forEach((d) => {
+            d.classList.remove("visible");
+            d.classList.add("hidden");
+          });
+      }
+      function go(s, p) {
+        hideAll();
+        const next = document.getElementById("step" + s);
+        next.classList.remove("hidden");
+        next.classList.add("visible");
+        document.getElementById("fill").style.width = p + "%";
+      }
+      function startBranch(b, color) {
+        branch = b;
+        document.body.style.background = color;
+        hideAll();
+        document.getElementById(b + "1").classList.remove("hidden");
+        document.getElementById(b + "1").classList.add("visible");
+        document.getElementById("fill").style.width = "15%";
+      }
+      function goBranch(b, s, p) {
+        hideAll();
+        const next = document.getElementById(b + s);
+        next.classList.remove("hidden");
+        next.classList.add("visible");
+        document.getElementById("fill").style.width = p + "%";
+      }
+      function triggerShake(msg) {
+        document.getElementById("card").classList.add("shake");
+        setTimeout(
+          () => document.getElementById("card").classList.remove("shake"),
+          300
+        );
+        if (msg) alert(msg);
+      }
+      function checkPass(id, correct) {
+        const val = document.getElementById(id).value.toLowerCase();
+        if (val === correct) {
+          goProposal(90);
+        } else {
+          triggerShake("Access Denied! Think about your path again... 😉");
+        }
+      }
+      function goProposal(p) {
+        hideAll();
+        document.getElementById("proposal").classList.remove("hidden");
+        document.getElementById("proposal").classList.add("visible");
+        document.getElementById("fill").style.width = p + "%";
+      }
+      function celebrate() {
+        hideAll();
+        document.getElementById("success").classList.remove("hidden");
+        document.getElementById("success").classList.add("visible");
+        document.getElementById("fill").style.width = "100%";
+        document.body.style.background = "#640d14";
+        setInterval(makeHeart, 150);
+        const msg = `I knew you were the one. My Ouissy, you have successfully conquered every path to my heart. Anwar is yours forever. I love you beyond any multiverse! 💍💖✨`;
+        let i = 0;
+        function type() {
+          if (i < msg.length) {
+            document.getElementById("typewriter").innerHTML += msg.charAt(i);
+            i++;
+            setTimeout(type, 45);
+          }
+        }
+        type();
+      }
+      function makeHeart() {
+        const h = document.createElement("div");
+        h.classList.add("heart");
+        h.innerHTML = ["❤️", "💖", "✨", "🌸"][Math.floor(Math.random() * 4)];
+        h.style.left = Math.random() * 100 + "vw";
+        h.style.bottom = "-50px";
+        h.style.fontSize = Math.random() * 20 + 15 + "px";
+        document.body.appendChild(h);
+        setTimeout(() => h.remove(), 4000);
+      }
 
-let strangerClicks = 0;
-const noneBtn = document.getElementById('noneBtn');
-const strangerTexts = ["Are you sure?", "Still a stranger?", "Stop it! 😤", "You can't click this", "Fine, I'm leaving!"];
+      const noneBtn = document.getElementById("noneBtn");
+      const strangerTexts = [
+        "Are you sure?",
+        "Still a stranger?",
+        "Stop it! 😂",
+        "You can't click this",
+        "Fine, I'm leaving!",
+      ];
+      const moveNone = () => {
+        if (strangerClicks < 5) {
+          noneBtn.innerText = strangerTexts[strangerClicks];
+          noneBtn.style.position = "fixed";
+          noneBtn.style.left = Math.random() * (window.innerWidth - 100) + "px";
+          noneBtn.style.top = Math.random() * (window.innerHeight - 50) + "px";
+          strangerClicks++;
+        } else {
+          noneBtn.style.display = "none";
+        }
+      };
+      noneBtn.addEventListener("mouseover", moveNone);
+      noneBtn.addEventListener("touchstart", (e) => {
+        e.preventDefault();
+        moveNone();
+      });
 
-const moveNone = () => {
-    if (strangerClicks < 5) {
-        noneBtn.innerText = strangerTexts[strangerClicks];
-        noneBtn.style.position = 'fixed';
-        noneBtn.style.left = Math.random() * (window.innerWidth - 100) + 'px';
-        noneBtn.style.top = Math.random() * (window.innerHeight - 50) + 'px';
-        strangerClicks++;
-    } else {
-        noneBtn.style.display = 'none';
-    }
-};
-
-noneBtn.addEventListener('mouseover', moveNone);
-noneBtn.addEventListener('touchstart', (e) => { e.preventDefault(); moveNone(); });
-        </script>
-</body>
+      const canvas = document.getElementById("particles");
+      const ctx = canvas.getContext("2d");
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      let particles = [];
+      class P {
+        constructor() {
+          this.x = Math.random() * canvas.width;
+          this.y = Math.random() * canvas.height;
+          this.v = Math.random() * 0.5 + 0.1;
+          this.s = Math.random() * 1.5;
+        }
+        draw() {
+          ctx.fillStyle = "rgba(255,255,255,0.3)";
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.s, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        update() {
+          this.y -= this.v;
+          if (this.y < 0) this.y = canvas.height;
+        }
+      }
+      for (let i = 0; i < 100; i++) particles.push(new P());
+      function anim() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach((p) => {
+          p.update();
+          p.draw();
+        });
+        requestAnimationFrame(anim);
+      }
+      anim();
+    </script>
+  </body>
 </html>
