@@ -119,11 +119,29 @@
         };
         noneBtn.addEventListener('mouseover', moveNone);
         noneBtn.addEventListener('touchstart', (e) => { e.preventDefault(); moveNone(); });
+document.getElementById('unlockBtn').addEventListener('click', () => {
+    document.getElementById('verificationCard').style.display = 'none';
+    document.getElementById('mainContent').classList.remove('hidden');
+});
 
-        const canvas = document.getElementById('particles'); const ctx = canvas.getContext('2d'); canvas.width = window.innerWidth; canvas.height = window.innerHeight; let particles = [];
-        class P { constructor() { this.x = Math.random()*canvas.width; this.y = Math.random()*canvas.height; this.v = Math.random()*0.5+0.1; this.s = Math.random()*1.5; } draw() { ctx.fillStyle = 'rgba(255,255,255,0.3)'; ctx.beginPath(); ctx.arc(this.x, this.y, this.s, 0, Math.PI*2); ctx.fill(); } update() { this.y -= this.v; if(this.y < 0) this.y = canvas.height; } }
-        for(let i=0; i<100; i++) particles.push(new P());
-        function anim() { ctx.clearRect(0,0,canvas.width, canvas.height); particles.forEach(p => { p.update(); p.draw(); }); requestAnimationFrame(anim); } anim();
-    </script>
+let strangerClicks = 0;
+const noneBtn = document.getElementById('noneBtn');
+const strangerTexts = ["Are you sure?", "Still a stranger?", "Stop it! 😤", "You can't click this", "Fine, I'm leaving!"];
+
+const moveNone = () => {
+    if (strangerClicks < 5) {
+        noneBtn.innerText = strangerTexts[strangerClicks];
+        noneBtn.style.position = 'fixed';
+        noneBtn.style.left = Math.random() * (window.innerWidth - 100) + 'px';
+        noneBtn.style.top = Math.random() * (window.innerHeight - 50) + 'px';
+        strangerClicks++;
+    } else {
+        noneBtn.style.display = 'none';
+    }
+};
+
+noneBtn.addEventListener('mouseover', moveNone);
+noneBtn.addEventListener('touchstart', (e) => { e.preventDefault(); moveNone(); });
+        </script>
 </body>
-</html> 
+</html>
